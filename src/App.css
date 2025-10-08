@@ -28,8 +28,28 @@
   color: #61dafb;
 }
 
-.align-content-center{
+body {
+  /* Apply fix for iOS/Safari not applying body to full screen with background video in place.
+  Without this the day/night toggle styling will only affect the root elements of the body and the 
+  remainder of the background will not get rendered in the style in Safari on MacOS or any browser in iOS */
+  -webkit-min-logical-height: -webkit-fill-available;
+}
+
+.main {
+  min-height: calc(100vh - 233px);
+}
+
+.night {
+  background-color: #000;
+  color: rgb(194, 194, 194);
+}
+
+.align-content-center {
   align-content: center;
+}
+
+.align-content-bottom {
+  align-content: baseline;
 }
 
 .clientCard {
@@ -37,6 +57,9 @@
   padding: 0.75em;
   background-color: rgb(255, 255, 255, 1.0);
   border-radius: 3%;
+}
+
+.clientCard, form input, form textarea, form button {
   box-shadow:  4px 4px 2px rgb(0, 0, 0, 0.5);
 }
 
@@ -63,12 +86,7 @@
   scrollbar-width: none;
 }
 
-.night .clientCard {
-  background-color: rgb(0, 0, 0, 1.0);
-  box-shadow: 0px 0px 8px 2px rgb(255, 255, 255, 0.5);
-}
-
-.night .modal-content {
+.night .clientCard, .night .modal-content, .night form input, .night form textarea, .night form button {
   background-color: rgb(0, 0, 0, 1.0);
   box-shadow: 0px 0px 8px 2px rgb(255, 255, 255, 0.5);
 }
@@ -81,6 +99,7 @@
 
 .night .clientCard img {
   opacity: 60%;
+  filter: invert(1) grayscale(100%) brightness(100%);
 }
 
 .container {
@@ -97,18 +116,6 @@
   }
 }
 
-body {
-  /* Apply fix for iOS/Safari not applying body to full screen with background video in place.
-  Without this the day/night toggle styling will only affect the root elements of the body and the 
-  remainder of the background will not get styled in Safari on MacOS or any browser in iOS */
-  -webkit-min-logical-height: -webkit-fill-available;
-}
-
-.night {
-  background-color: #000;
-  color: rgb(194, 194, 194);
-}
-
 nav a.active {
 	color: #000000;
 }
@@ -117,7 +124,7 @@ nav a.active {
 	color: aquamarine;
 }
 
-nav .dropdown{
+nav .dropdown {
   color: rgb(255, 255, 255);
   display: flex;
   -webkit-box-align: center;
@@ -191,13 +198,22 @@ nav .form-switch {
   }
 }
 
-nav .form-switch .form-check-label{
+nav .form-switch .form-check-label {
   min-width: 3em;
   padding-left: 0.25em;
   padding-top: 0.25em;
   @media screen and (max-width: 768px) {
     padding-top: 0;
   }
+}
+
+.form-switch .form-check-input {
+  margin-right: 0.25em;
+}
+
+nav input[type="checkbox"]:focus-visible {
+  outline: 2px solid blue;
+  box-shadow: 0 0 5px rgba(0, 0, 128, 0.5);
 }
 
 video.background-video {
@@ -225,4 +241,85 @@ video.background-video {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%2386b7fe'/%3e%3c/svg%3e");
   background-color: midnightblue;
   border: 2px solid rgb(194, 194, 194);
+}
+
+.rs-timeline {
+  display: grid;
+}
+
+li.rs-timeline-item .rs-timeline-item-content .eventCard {
+  margin: 0.4em 0.4em 1.2em 0.4em;
+  padding: 0.75em;
+  background-color: rgb(255, 255, 255, 1.0);
+  border-radius: 5px;
+  box-shadow:  4px 4px 2px rgb(0, 0, 0, 0.5);
+}
+
+.night li.rs-timeline-item .rs-timeline-item-content .eventCard {
+  background-color: rgb(0, 0, 0, 1.0);
+  box-shadow: 0px 0px 8px 2px rgb(255, 255, 255, 0.5);
+}
+
+.rs-timeline-item-tail, .rs-timeline-item-dot::before {
+  background: rgb(14, 134, 212);
+}
+
+.night .rs-timeline-item-tail, .rs-timeline-item-dot::before {
+  background: rgb(0, 100, 180);
+}
+
+
+.rs-timeline-item-active .rs-timeline-item-dot::before {
+  background: rgb(255, 255, 255);
+}
+
+.night .rs-timeline-item-active .rs-timeline-item-dot::before {
+  background: rgb(0, 0, 0);
+}
+
+.custom-timeline .rs-timeline-item-custom-dot .rs-icon {
+  position: absolute;
+  background: rgb(255, 255, 255);
+  top: 0;
+  left: -2px;
+  border: 2px solid #ddd;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  color: rgb(153, 153, 153);
+  margin-left: -13px;
+  justify-content: center;
+  padding: 8px;
+}
+
+.night .custom-timeline .rs-timeline-item-custom-dot .rs-icon {
+  background: rgb(0, 0, 0);
+  border: 2px solid #999;
+  color: rgb(153, 153, 153);
+}
+
+.night .modal .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+
+footer {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  color:rgb(0, 0, 0);
+}
+
+footer .container {
+  margin-bottom: 0;
+}
+
+footer .disclaimer {
+  font-size: x-small;
+  text-align: center;
+}
+
+.night footer {
+  background-color: rgb(0, 0, 0);
+  color:rgb(255, 255, 255);
 }

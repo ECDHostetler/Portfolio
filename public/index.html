@@ -35,6 +35,22 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script>
+      // Example: Detect old IE and display a message
+      var userAgent = window.navigator.userAgent;
+      var isIE10orLower = userAgent.indexOf("MSIE ");
+      var isIE11 = userAgent.indexOf("Trident/");
+
+      if (isIE10orLower > 0 || isIE11 > 0) {
+        var rootElement = document.getElementById("root");
+        if (rootElement) {
+          rootElement.innerHTML = "<h1>Your browser is no longer supported as React site like this one require ES6+ Javascript features that Internet Explorer does not support. Internet Explorer end of life officially ended June 15th, 2022. Please update to Microsoft Edge or use another modern browser like <a href='https://www.google.com/chrome/?_gl=1*1eqlypg*_up*MQ..&gclid=EAIaIQobChMIk6bvqquRkAMVkDYIBR3HWRHkEAAYASAAEgLGD_D_BwE&gclsrc=aw.ds&gbraid=0AAAAAoY3CA47Wy78IpWt_V5OQk5BqbGqq'> Google Chrome</a>.</h1>";
+        }
+      } else if (typeof Promise === 'undefined' || typeof fetch === 'undefined') {
+        // Display a message to the user that their browser is not supported
+        document.getElementById('root').innerHTML = "<h1>Your browser is outdated and does not support ES6+ Javascript features that are required for React sites like this. Please upgrade to a newer browser like <a href='https://www.google.com/chrome/?_gl=1*1eqlypg*_up*MQ..&gclid=EAIaIQobChMIk6bvqquRkAMVkDYIBR3HWRHkEAAYASAAEgLGD_D_BwE&gclsrc=aw.ds&gbraid=0AAAAAoY3CA47Wy78IpWt_V5OQk5BqbGqq'> Google Chrome</a>.</h1>";
+      }
+    </script>
     <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

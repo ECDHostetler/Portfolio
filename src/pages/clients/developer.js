@@ -2,7 +2,7 @@
 
 import React from 'react';
 import BgVid from '../../components/BgVideo/bgVideo';
-import video from '../../resources/videos/animated_leaves.mp4';
+import video from '../../resources/videos/animated_leaves.webm';
 import Clients from '../../components/ItemLists/clientCard';
 
 const DeveloperClients = () => {

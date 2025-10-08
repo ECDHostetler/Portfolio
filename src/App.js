@@ -1,6 +1,7 @@
 //import logo from './logo.svg';
 import './App.css';
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer/footer"
 import {
     BrowserRouter as Router,
     Routes,
@@ -19,7 +20,7 @@ function App() {
   return (
         <Router>
             <Navbar />
-            <div className='container'>
+            <div className='main container'>
               <div className='row'>
                 <Routes>
                     <Route path="/" element={<Home />} />
@@ -32,6 +33,7 @@ function App() {
                 </Routes>
               </div>
             </div>
+            <Footer />
         </Router>
         
   );

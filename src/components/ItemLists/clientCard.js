@@ -4,12 +4,14 @@ import React, {useState, useEffect} from 'react';
 import * as XLSX from 'xlsx';
 import clientXLSX from '../../resources/files/client_list.xlsb.xlsx';
 import defaultImage from '../../resources/images/coming-soon-stamp.jpg';
+import Modal from '../../components/Modal/modalComponent';
 import $ from 'jquery';
 
 const Clients = ({ type }) => {
 
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
+    const modalType = 'client';
 
     useEffect(() => {
         const fetchData = async () => {
@@ -65,18 +67,18 @@ const Clients = ({ type }) => {
         return img;
     }
 
-    const populateDescription = (clientName, clientDescription) => {
+    const populateDescription = (modalType, clientName, clientDescription) => {
         // Populate the modal with provided client name and description on click
-        $('#clientModal .modal-title').html(clientName);
-        $('#clientModal .modal-body').html(clientDescription);
+        $('#'+ modalType + 'Modal .modal-title').html(clientName);
+        $('#'+ modalType + 'Modal .modal-body').html(clientDescription);
     }
 
     // Render the data in a simple table
     return (
-        <div>
+        <>
             <div className='container'>
                 <div className='row'>
-                {data.filter(item => item.client_type === type).map((item, i) => (
+                    {data.filter(item => item.client_type === type).map((item, i) => (
                         <div key={i} className='col-sm-12 col-md-6 col-lg-4 col-xl-3'>
                             <div className='clientCard'>
                                 <div className='clientLogo align-content-center text-center'>
@@ -90,7 +92,7 @@ const Clients = ({ type }) => {
                                     <p>{item.technology_stack}</p>
                                 </div>
                                 <div className='clientAboutButton text-center'>
-                                    <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#clientModal" onClick={() => populateDescription(item.client_name, item.client_description)}>
+                                    <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target={"#"+modalType+"Modal"} onClick={() => populateDescription(modalType, item.client_name, item.client_description)}>
                                         About Client
                                     </button>
                                 </div>
@@ -99,23 +101,8 @@ const Clients = ({ type }) => {
                     ))}
                 </div>
             </div>
-            <div className='modal' id='clientModal' tabIndex='-1'>
-                <div className='modal-dialog'>
-                    <div className='modal-content'>
-                        <div className='modal-header'>
-                            <h5 className='modal-title'>{type} title</h5>
-                            <button type='button' className='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                        </div>
-                        <div className='modal-body'>
-                            <p>Modal body text goes here.</p>
-                        </div>
-                        <div className='modal-footer'>
-                            <button type='button' className='btn btn-primary' data-bs-dismiss='modal'>Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <Modal modalType = {modalType} />
+        </>
     );
 };
 

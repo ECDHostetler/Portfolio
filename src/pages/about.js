@@ -2,7 +2,7 @@
 
 import React from 'react';
 import BgVid from '../components/BgVideo/bgVideo';
-import video from '../resources/videos/animated_clouds.mp4';
+import video from '../resources/videos/animated_clouds.webm';
 
 const About = () => {
 	return (

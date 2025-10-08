@@ -2,7 +2,7 @@
 
 import React from 'react';
 import BgVid from '../components/BgVideo/bgVideo';
-import video from '../resources/videos/animated_blossoms.mp4';
+import video from '../resources/videos/animated_blossoms.webm';
 
 const Home = () => {
 return (
