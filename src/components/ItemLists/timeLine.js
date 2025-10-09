@@ -12,7 +12,7 @@ const TimeLineComponent = ({ type, align }) => {
 
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
-    const modalType = type;
+    const modalType = type;    
 
     useEffect(() => {
         const fetchData = async () => {
@@ -76,19 +76,27 @@ const TimeLineComponent = ({ type, align }) => {
         }
     };
 
+    const formatDate = (date) =>{
+        const newDate = new Date(date);
+        const formattedDate = newDate.toLocaleString('en-US', {month: 'long', year: 'numeric'});
+
+        return formattedDate;
+    }
+
     return (
         <>
             <div className='container'>
                 <div className='row'>
                     <Timeline align={align} className="custom-timeline">            
-                        {data.map((item, i) => (
+                        {data.filter((obj, index, self) => index === self.findIndex((o) => o.client_name === obj.client_name))
+                        .sort((a, b) => a.client_start_date > b.client_start_date ? 1 : -1).map((item, i) => (
                             <Timeline.Item key={i} dot={<UserIcon />} >
                                 <div className={""+modalType+"Card"} tabIndex={7} data-bs-toggle="modal" data-bs-target={"#"+modalType+"Modal"} onClick={() => populateDescription(modalType, item.client_name, item.client_description)} onKeyDown={handleKeyDown}>
-                                    <h5>2018-03-01</h5>
+                                    <h5>{formatDate(item.client_start_date)} - {formatDate(item.client_end_date)}</h5>
                                     <h6>{item.client_name}</h6>
                                     <p>{item.technology_stack}</p>
                                 </div>
-                            </Timeline.Item>        
+                            </Timeline.Item>       
                         ))}
                     </Timeline>  
                 </div>
