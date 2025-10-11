@@ -44,11 +44,16 @@
       if (isIE10orLower > 0 || isIE11 > 0) {
         var rootElement = document.getElementById("root");
         if (rootElement) {
-          rootElement.innerHTML = "<h1>Your browser is no longer supported as React site like this one require ES6+ Javascript features that Internet Explorer does not support. Internet Explorer end of life officially ended June 15th, 2022. Please update to Microsoft Edge or use another modern browser like <a href='https://www.google.com/chrome/?_gl=1*1eqlypg*_up*MQ..&gclid=EAIaIQobChMIk6bvqquRkAMVkDYIBR3HWRHkEAAYASAAEgLGD_D_BwE&gclsrc=aw.ds&gbraid=0AAAAAoY3CA47Wy78IpWt_V5OQk5BqbGqq'> Google Chrome</a>.</h1>";
+          rootElement.innerHTML = "<h1>Your browser is no longer supported as a React site like this one requires ES6+ Javascript features that "
+            +"Internet Explorer does not support. Internet Explorer end of life officially ended June 15th, 2022. Please update to Microsoft Edge "
+            +"or use another modern browser like <a href='https://www.google.com/chrome/?_gl=1*1eqlypg*_up*MQ..&gclid=EAIaIQobChMIk6bvqquRkAMVkDYIBR3HWRHkEAAYASAAEgLGD_D_BwE&gclsrc=aw.ds&gbraid=0AAAAAoY3CA47Wy78IpWt_V5OQk5BqbGqq'>"
+            +" Google Chrome</a>.</h1>";
         }
       } else if (typeof Promise === 'undefined' || typeof fetch === 'undefined') {
         // Display a message to the user that their browser is not supported
-        document.getElementById('root').innerHTML = "<h1>Your browser is outdated and does not support ES6+ Javascript features that are required for React sites like this. Please upgrade to a newer browser like <a href='https://www.google.com/chrome/?_gl=1*1eqlypg*_up*MQ..&gclid=EAIaIQobChMIk6bvqquRkAMVkDYIBR3HWRHkEAAYASAAEgLGD_D_BwE&gclsrc=aw.ds&gbraid=0AAAAAoY3CA47Wy78IpWt_V5OQk5BqbGqq'> Google Chrome</a>.</h1>";
+        document.getElementById('root').innerHTML = "<h1>Your browser is outdated and does not support the ES6+ Javascript features that are required for "
+          +"React sites like this. Please upgrade to a newer browser like <a href='https://www.google.com/chrome/?_gl=1*1eqlypg*_up*MQ..&gclid=EAIaIQobChMIk6bvqquRkAMVkDYIBR3HWRHkEAAYASAAEgLGD_D_BwE&gclsrc=aw.ds&gbraid=0AAAAAoY3CA47Wy78IpWt_V5OQk5BqbGqq'>"
+          +" Google Chrome</a>.</h1>";
       }
     </script>
     <script

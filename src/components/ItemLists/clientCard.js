@@ -78,14 +78,16 @@ const Clients = ({ type }) => {
         <>
             <div className='container'>
                 <div className='row'>
-                    {data.filter(item => item.client_type === type).map((item, i) => (
+                    {data.filter(item => item.client_type === type)
+                        .sort((a, b) => a.isEmployer < b.isEmployer ? 1 : -1)
+                        .map((item, i) => (
                         <div key={i} className='col-sm-12 col-md-6 col-lg-4 col-xl-3'>
                             <div className='clientCard'>
                                 <div className='clientLogo align-content-center text-center'>
                                     <img src={getImage(item.client_logo)} alt={'client logo ' + (item.client_logo === 'null' ? 'coming soon' : item.client_logo)} />
                                 </div>
                                 <div className='clientName'>
-                                    <h6>{item.client_name}</h6>
+                                    <h6>{item.client_name}: {item.isEmployer === 'yes' ? 'Employer' : item.client_primary_technology + ' Client'}</h6>
                                 </div>
                                 <div className='clientSkillStack'>
                                     <h6>Technology Stack:</h6>

@@ -11,7 +11,7 @@ const MarketingClients = () => {
             <BgVid		
                 src = {video}
             />            
-            <h1>Former employers and clients I have worked for as a marketing automation expert.</h1>
+            <h1>Former employers and the clients I have worked for in my career as a marketing automation expert.</h1>
 
             <Clients 
                 type = 'Marketing'

@@ -11,7 +11,7 @@ const DeveloperClients = () => {
             <BgVid		
                 src = {video}
             />            
-            <h1>Former employers and clients I have worked for as a software developer.</h1>
+            <h1>Former employers and the clients I have worked for in my career as a software developer.</h1>
 
             <Clients 
                 type = 'Developer'
