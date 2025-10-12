@@ -28,7 +28,15 @@
   color: #61dafb;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 body {
+  display: flex;
+  flex-direction: column;
+
   /* Apply fix for iOS/Safari not applying body to full screen with background video in place.
   Without this the day/night toggle styling will only affect the root elements of the body and the 
   remainder of the background will not get rendered in the style in Safari on MacOS or any browser in iOS */
@@ -36,7 +44,13 @@ body {
 }
 
 .main {
-  min-height: calc(100vh - 233px);
+  flex-grow: 1;
+}
+
+#root{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .night {

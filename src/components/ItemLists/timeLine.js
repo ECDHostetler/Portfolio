@@ -89,11 +89,17 @@ const TimeLineComponent = ({ type, align }) => {
                 <div className='row'>
                     <Timeline align={align} className="custom-timeline">            
                         {data.filter((obj, index, self) => index === self.findIndex((o) => o.client_name === obj.client_name && o.client_start_date === obj.client_start_date))
-                        .sort((a, b) => a.client_start_date > b.client_start_date ? 1 : -1).map((item, i) => (
+                        .sort((a, b) => a.client_start_date < b.client_start_date ? 1 : -1).map((item, i) => (
                             <Timeline.Item key={i} dot={<UserIcon />} >
                                 <div className={""+modalType+"Card"} tabIndex={7} data-bs-toggle="modal" data-bs-target={"#"+modalType+"Modal"} onClick={() => populateDescription(modalType, item.client_name, item.client_description)} onKeyDown={handleKeyDown}>
                                     <h5>{formatDate(item.client_start_date)} - {formatDate(item.client_end_date)}</h5>
-                                    <h6>{item.client_name}: {item.isEmployer === 'yes' ? 'Employer' : item.client_primary_technology + ' Client'}</h6>
+                                    <h6>{item.client_name}: {(
+                                                                item.isEmployer === 'yes' 
+                                                                    ? 'Employer' 
+                                                                    : item.client_primary_technology + ' Client' + ((item.client_of) 
+                                                                        ? ' of '+item.client_of 
+                                                                        : '')
+                                                            )}</h6>
                                     <p>{item.technology_stack}</p>
                                 </div>
                             </Timeline.Item>       
