@@ -9,7 +9,7 @@ const About = () => {
 
 const cards = 	[{ id: 1, title: 'Who am I?', image: 'vegas_2024.jpg', 
 					text: 'I had a diverse upbringing being born to a mother who was born and raised in Japan and having Amish and Mennonite missionary '
-					+'grandparents. I met my wife dating online who imigrated from Liaoning China to be with me in 2022. '
+					+'grandparents. I met my wife dating online in 2018 who later imigrated from Liaoning China to be with me in 2022. '
 					+"Since graduating with my Bachelor's from Winona State I have been engaged on many various client projects for Marketing Automation"
 					+", Front End developer, Application Develoepr, Full-Stack developer. If there is a role that needs a problem solver, I'm alwasy game to take on"
 					+' a challenge.'

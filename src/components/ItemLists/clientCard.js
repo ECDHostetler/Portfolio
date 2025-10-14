@@ -96,7 +96,7 @@ const Clients = ({ type }) => {
                                 </div>
                                 <div className='clientAboutButton text-center'>
                                     <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target={"#"+modalType+"Modal"} onClick={() => populateModal(modalType, item.client_name, item.client_description, item.background_image)}>
-                                        About Client
+                                        About {item.isEmployer === 'no' ? 'Client' : 'Employer'}
                                     </button>
                                 </div>
                             </div>

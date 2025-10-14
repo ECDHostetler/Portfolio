@@ -58,14 +58,6 @@ body {
   color: rgb(194, 194, 194);
 }
 
-.align-content-center {
-  align-content: center;
-}
-
-.align-content-bottom {
-  align-content: baseline;
-}
-
 .clientCard {
   margin: 0.4em 0.4em 1.2em 0.4em;
   padding: 0.75em;
@@ -455,6 +447,17 @@ footer .disclaimer {
   background-position: center center;
   background-repeat: no-repeat;
   color:rgb(255, 255, 255);
+}
+
+.dev-header img{
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+.dev-info .social-icons a {
+  font-size: x-large;
+  margin: 0 0.5rem;
 }
 
 @supports (margin-bottom:clamp(5rem ,1.25rem + 16.0vw ,11.25rem)) {
