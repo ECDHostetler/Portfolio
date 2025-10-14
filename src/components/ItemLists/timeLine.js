@@ -60,10 +60,12 @@ const TimeLineComponent = ({ type, align }) => {
         return <div>Loading...</div>;
     }
 
-    const populateDescription = (modalType, clientName, clientDescription) => {
+    const populateModal = (modalType, clientName, clientDescription, background) => {
         // Populate the modal with provided client name and description on click
+        let image = !background ? '' : require('../../resources/images/' + background);
         $('#'+ modalType + 'Modal .modal-title').html(clientName);
         $('#'+ modalType + 'Modal .modal-body').html(clientDescription);
+        $('#'+ modalType + 'Modal .modal-content').css({'background-image': 'url('+ image + ')'});        
     }
 
     const handleKeyDown = (event) => {
@@ -91,7 +93,7 @@ const TimeLineComponent = ({ type, align }) => {
                         {data.filter((obj, index, self) => index === self.findIndex((o) => o.client_name === obj.client_name && o.client_start_date === obj.client_start_date))
                         .sort((a, b) => a.client_start_date < b.client_start_date ? 1 : -1).map((item, i) => (
                             <Timeline.Item key={i} dot={<UserIcon />} >
-                                <div className={""+modalType+"Card"} tabIndex={7} data-bs-toggle="modal" data-bs-target={"#"+modalType+"Modal"} onClick={() => populateDescription(modalType, item.client_name, item.client_description)} onKeyDown={handleKeyDown}>
+                                <div className={""+modalType+"Card"} tabIndex={7} data-bs-toggle="modal" data-bs-target={"#"+modalType+"Modal"} onClick={() => populateModal(modalType, item.client_name, item.client_description, item.background_image)} onKeyDown={handleKeyDown}>
                                     <h5>{formatDate(item.client_start_date)} - {formatDate(item.client_end_date)}</h5>
                                     <h6>{item.client_name}: {(
                                                                 item.isEmployer === 'yes' 

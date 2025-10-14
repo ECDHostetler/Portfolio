@@ -67,13 +67,14 @@ const Clients = ({ type }) => {
         return img;
     }
 
-    const populateDescription = (modalType, clientName, clientDescription) => {
+    const populateModal = (modalType, clientName, clientDescription, background) => {
         // Populate the modal with provided client name and description on click
+        let image = !background ? '' : require('../../resources/images/' + background);
         $('#'+ modalType + 'Modal .modal-title').html(clientName);
         $('#'+ modalType + 'Modal .modal-body').html(clientDescription);
+        $('#'+ modalType + 'Modal .modal-content').css({'background-image': 'url('+ image + ')'});
     }
 
-    // Render the data in a simple table
     return (
         <>
             <div className='container'>
@@ -94,7 +95,7 @@ const Clients = ({ type }) => {
                                     <p>{item.technology_stack}</p>
                                 </div>
                                 <div className='clientAboutButton text-center'>
-                                    <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target={"#"+modalType+"Modal"} onClick={() => populateDescription(modalType, item.client_name, item.client_description)}>
+                                    <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target={"#"+modalType+"Modal"} onClick={() => populateModal(modalType, item.client_name, item.client_description, item.background_image)}>
                                         About Client
                                     </button>
                                 </div>

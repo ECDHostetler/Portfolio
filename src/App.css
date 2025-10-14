@@ -337,3 +337,160 @@ footer .disclaimer {
   background-color: rgb(0, 0, 0);
   color:rgb(255, 255, 255);
 }
+
+.cascade-slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.cascade-item-wrapper {
+  height: 475px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  position: sticky;
+  z-index: 1;
+}
+
+.modal-content {
+  min-height: 450px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  position: sticky;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .modal-dialog {
+      max-width: 720px;
+  }
+}
+
+.modal-header, .modal-footer {
+  background-color: rgba(255,255,255,0.85);
+  z-index: 1;
+}
+
+.night .modal-header, .night .modal-footer {
+  background-color:rgba(0,0,0,0.5);
+}
+
+.cascade-item-row {
+  display: block;
+  overflow-y: hidden;
+  min-height: 100%;
+}
+
+.cascade-item-overlay {
+  position:absolute;
+  top:0;right:0;left:0;bottom:0;
+  background-color:rgba(255,255,255,0.85);
+  z-index:0;
+}
+
+.modal-overlay {
+  position:absolute;
+  top:0;right:0;left:0;bottom:0;
+  background-color:rgba(255,255,255,0.75);
+  z-index:0;
+}
+
+.night .cascade-item-overlay, .night .modal-overlay {
+  background-color:rgba(0,0,0,0.5);
+}
+
+.cascade-item {
+  font-weight: 500;
+  font-size: 1.1875rem;
+  line-height: 1.875rem;
+  margin-bottom: 1.5rem;
+  top: 60px;
+  position: sticky;
+  width: 100%;
+  -webkit-transition: all .2s linear;
+  -o-transition: all .2s linear;
+  transition: all .2s linear;
+  overflow: hidden;
+}
+
+.cascade-slider .cascade-item  {
+  box-shadow:  0px 2px 4px 2px rgb(0, 0, 0, 0.5);
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color:rgb(0, 0, 0);
+}
+
+.modal .modal-content  {
+  box-shadow:  0px 2px 4px 2px rgb(0, 0, 0, 0.5);
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color:rgb(0, 0, 0);
+}
+
+.night .cascade-slider .cascade-item {
+  box-shadow: 0px 0px 8px 2px rgb(255, 255, 255, 0.5);
+  background: rgba(24, 28, 31, .8);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color:rgb(255, 255, 255);
+}
+
+.night .modal .modal-content {
+  box-shadow: 0px 0px 8px 2px rgb(255, 255, 255, 0.5);
+  background: rgba(24, 28, 31, .8);
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color:rgb(255, 255, 255);
+}
+
+@supports (margin-bottom:clamp(5rem ,1.25rem + 16.0vw ,11.25rem)) {
+  .cascade {
+      margin-bottom: clamp(5rem, 1.25rem + 16.0vw, 11.25rem);
+  }
+}
+
+@supports (padding-inline:clamp(0.875rem ,0.05rem + 3.625vw ,2.875rem)) {
+  .cascade-item {
+      padding-inline: clamp(.875rem, .05rem + 3.625vw, 2.875rem);
+  }
+}
+@supports (padding:clamp(1.375rem ,0.75rem + 2.75vw ,2.875rem)) {
+  .cascade-item {
+      padding: clamp(1.375rem, .75rem + 2.75vw, 2.875rem);
+  }
+}
+
+.title {
+    font-weight: 700;
+}
+
+@supports (margin-bottom:clamp(1.75rem, 1.1rem + 4.0vw, 2.5rem)) {
+    .title {
+        margin-bottom: clamp(1.75rem, 1.1rem + 4.0vw, 2.5rem);
+    }
+}
+
+@supports (line-height:clamp(2.0rem ,1.75rem + 5.0vw ,3.625rem)) {
+    .title {
+        line-height: clamp(2.0rem ,1.75rem + 5.0vw ,3.625rem);
+    }
+}
+@supports (font-size:clamp(1.75rem ,1.5rem + 5.0vw ,3.25rem)) {
+    .title {
+        font-size: clamp(1.75rem ,1.5rem + 5.0vw ,3.25rem);
+    }
+}

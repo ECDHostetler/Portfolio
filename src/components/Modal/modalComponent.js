@@ -22,6 +22,7 @@ const Modal = ({modalType}) => {
         <div className='modal' id={modalType+'Modal'} tabIndex='-1'>
             <div className='modal-dialog'>
                 <div className='modal-content'>
+                    <div className='modal-overlay'></div>
                     <div className='modal-header'>
                         <h5 className='modal-title text-uppercase'>{modalType} title</h5>
                         <button type='button' className='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
