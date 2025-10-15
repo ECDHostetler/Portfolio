@@ -29,14 +29,12 @@
 }
 
 html, body {
-  /* Apply fix for iOS/Safari not applying body to full screen with background video in place.
-  Without this the day/night toggle styling will only affect the root elements of the body and the 
-  remainder of the background will not get rendered in the style in Safari on MacOS or any browser in iOS.
-  Subtract the Navbar height to older Safari browser don't crush it under 100% height rendering */
-  height: calc(100vh-85px);
   margin: 0;
   display: flex;
   flex-direction: column;
+  /* Apply fix for iOS/Safari not applying body to full screen with background video in place.
+  Without this the day/night toggle styling will only affect the root elements of the body and the 
+  remainder of the background will not get rendered in the style in Safari on MacOS or any browser in iOS.*/
   -webkit-min-logical-height: -webkit-fill-available;
 }
 
