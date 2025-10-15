@@ -2,7 +2,6 @@
 
 import React from 'react';
 import BgVid from '../components/BgVideo/bgVideo';
-import video from '../resources/videos/animated_clouds.webm';
 import CascadeSlider from '../components/Sliders/cascadeSlider';
 
 const About = () => {
@@ -30,7 +29,7 @@ const cards = 	[{ id: 1, title: 'Who am I?', image: 'vegas_2024.jpg',
 	return (
 		<div className="col-12">
 			<BgVid		
-				src = {video}
+				src = {'animated_clouds'}
 			/>		
 			<CascadeSlider 
 				title='About Me'

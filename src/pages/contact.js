@@ -3,7 +3,6 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import BgVid from '../components/BgVideo/bgVideo';
-import video from '../resources/videos/animated_water.mp4';
 
 const Contact = () => {
     const form = useRef();
@@ -33,7 +32,7 @@ const Contact = () => {
 	return (
 		<div className="col-12">
             <BgVid		
-                src = {video}
+                src = {'animated_water'}
             />
             <div className="signup-form">
                 {!isVisible && <h2 className="hide" id="emailSendResult">{isSuccess ? "Thank you for reaching out!" : "Oops! Something went wrong. Please try again later."}</h2> }

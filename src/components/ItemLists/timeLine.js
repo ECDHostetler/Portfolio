@@ -79,8 +79,11 @@ const TimeLineComponent = ({ type, align }) => {
     };
 
     const formatDate = (date) =>{
-        const newDate = new Date(date+1); //Fix date offset rendering months 1 behind actual date provided.
-        const formattedDate = !isNaN(newDate) ? newDate.toLocaleString('en-US', {month: 'long', year: 'numeric'}) : '';
+
+        let newDateString = date?.replaceAll("-", "/");
+        let newDate = new Date(newDateString+1); //Fix date offset rendering months 1 behind actual date provided.
+
+        const formattedDate = !isNaN(newDate) ? newDate.toLocaleString('en-GB', {month: 'long', year: 'numeric'}) : '';
 
         return formattedDate;
     }
