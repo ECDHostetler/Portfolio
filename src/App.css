@@ -39,6 +39,14 @@
   flex-direction: column;
   -webkit-min-logical-height: -webkit-fill-available;
 }
+
+@supports selector(:has(*)) {
+  /* newer browsers that support :has don't need the prior nav offset */
+  #root{
+    height: 100vh;
+  }
+}
+
 .main {
   flex-grow: 1;
 }
