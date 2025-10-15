@@ -28,7 +28,7 @@
   color: #61dafb;
 }
 
-#root{
+html, body {
   /* Apply fix for iOS/Safari not applying body to full screen with background video in place.
   Without this the day/night toggle styling will only affect the root elements of the body and the 
   remainder of the background will not get rendered in the style in Safari on MacOS or any browser in iOS.
@@ -42,7 +42,7 @@
 
 @supports selector(:has(*)) {
   /* newer browsers that support :has don't need the prior nav offset */
-  #root{
+  body {
     height: 100vh;
   }
 }
