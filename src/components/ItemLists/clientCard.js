@@ -1,63 +1,20 @@
 // components/ItemLists/clientCard.js
 
-import React, {useState, useEffect} from 'react';
-import * as XLSX from 'xlsx';
-import clientXLSX from '../../resources/files/client_list.xlsb.xlsx';
+import React, {useState, useCallback} from 'react';
 import defaultImage from '../../resources/images/coming-soon-stamp.jpg';
-import Modal from '../../components/Modal/modalComponent';
+import Modal from '../Modal/modalComponent';
+import GetClients from "../Logic/getClients";
 import $ from 'jquery';
+import clientXLSX from '../../resources/files/client_list.xlsb.xlsx';
 
 const Clients = ({ type }) => {
-
-    const [data, setData] = useState(null);
-    const [error, setError] = useState(null);
+    const [dataFromExcel, setDataFromExcel] = useState([]);
     const modalType = 'client';
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                // Fetch the file from the public directory
-                const response = await fetch(clientXLSX);
-                
-                if (!response.ok) {
-                    throw new Error(`Failed to fetch file: ${response.statusText}`);
-                }
+    const handleExcelDataLoaded = useCallback((data) => {
+        setDataFromExcel(data);
+    }, []); //Use useCallback so it doesn't create an inifinite call loop with GetClients
 
-                // Convert the response to an ArrayBuffer
-                const arrayBuffer = await response.arrayBuffer();
-                
-                // Use the xlsx library to read the file data
-                const workbook = XLSX.read(arrayBuffer, { type: 'array' });
-
-                // Get the first sheet's name and worksheet
-                const sheetName = workbook.SheetNames[0];
-                const worksheet = workbook.Sheets[sheetName];
-                
-                // Convert the worksheet to JSON format
-                const json = XLSX.utils.sheet_to_json(worksheet);
-                
-                // Store the JSON data in the component's state
-                setData(json);
-
-            } 
-            catch (e) {
-                setError(e.message);
-                console.error('Error reading the Excel file:', e);
-            }
-        };
-
-        fetchData();
-    }, []);
-
-    if (error) {
-        // Render error to page
-        return <div>Error: {error}</div>;
-    }
-
-    if (!data) {
-        // While it will appear briefly this will provide a loading screen when navigating to the client pages
-        return <div>Loading...</div>;
-    }
 
     const getImage = (imageName) => {
         // convert 'null' text null value
@@ -79,7 +36,11 @@ const Clients = ({ type }) => {
         <>
             <div className='container'>
                 <div className='row'>
-                    {data.filter(item => item.client_type === type)
+                    <GetClients
+                        excelFilePath={clientXLSX}
+                        onDataLoaded={handleExcelDataLoaded}
+                    />  
+                    {dataFromExcel.filter(item => item.client_type === type)
                         .sort((a, b) => a.isEmployer < b.isEmployer ? 1 : -1)
                         .map((item, i) => (
                         <div key={i} className='col-sm-12 col-md-6 col-lg-4 col-xl-3'>

@@ -174,23 +174,32 @@ nav .nav-link, .night nav .nav-link, nav .form-check-label {
   color: #fff;
 }
 
-nav .dropdown:has(.dropdown-item.active) .nav-link {
+.parent-active .dropdown-toggle {
   text-decoration: underline;
   text-decoration-color: #000;
   text-decoration-thickness: 2px;
   background: transparent;
 }
 
-.night nav .dropdown:has(.dropdown-item.active) .nav-link {
+.parent-active .dropdown-toggle::after {
+  color: #000;
+}
+
+.night .parent-active .dropdown-toggle {
   text-decoration: underline;
   text-decoration-color: aquamarine;
   text-decoration-thickness: 2px;
   background: transparent;
 }
 
-nav .show {
-  @media screen and (max-width: 768px) {
+.night .parent-active .dropdown-toggle::after {
+  color: aquamarine;
+}
+
+@media screen and (max-width: 768px) {
+  nav .show {
     display: flex;
+    display: -webkit-flex;
   }
 }
 
@@ -199,7 +208,10 @@ nav .form-switch {
   height: 100%; 
   align-items: center;
   margin-left: 1.5em;
-  @media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 768px) {
+  nav .form-switch {
     display: block;
     position: absolute;
     top: 1.5em; 
@@ -253,6 +265,10 @@ video.background-video {
 
 .rs-timeline {
   display: grid;
+}
+
+.eventCard:hover {
+  cursor: pointer;
 }
 
 li.rs-timeline-item .rs-timeline-item-content .eventCard {
