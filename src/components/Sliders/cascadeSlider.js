@@ -25,9 +25,9 @@ const CascadeSlider = ({title, cards}) => {
             let y = sliderHeight / itemCount;
             if (window.scrollY > sliderVertPos && window.scrollY < x)
                 for (let i = 0; i < itemCount; i++) {
-                    let a = 1 - .08 * (window.scrollY - sliderVertPos + 50 - y * i) / y;
-                    let b = 1 - .15 * (window.scrollY - sliderVertPos + 50 - y * i) / y;
-                    let c = 60 - 30 * (window.scrollY - sliderVertPos + 50 - y * i) / y;
+                    let a = 1 - .08 * (window.scrollY - sliderVertPos + 60 - y * i) / y;
+                    let b = 1 - .15 * (window.scrollY - sliderVertPos + 60 - y * i) / y;
+                    let c = 60 - 30 * (window.scrollY - sliderVertPos + 60 - y * i) / y;
                     a > 1 && (a = 1);
                     sliderItems[i].style.transform = `scale(${a})`;
                     sliderItems[i].style.opacity = b;
@@ -63,12 +63,12 @@ const CascadeSlider = ({title, cards}) => {
     }, []);
 
     return (
-        <section className="cascade">
+        <div className="cascade">
             <div className="title">{title}</div>
             <div className="cascade-slider">
                 <SliderCards cards={cards} />
             </div>
-        </section>
+        </div>
     );
 };
 

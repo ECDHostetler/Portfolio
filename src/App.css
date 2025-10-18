@@ -60,6 +60,23 @@ html, body {
   color: rgb(194, 194, 194);
 }
 
+.container {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*====================
+Client Card Elements
+====================*/
 .clientCard {
   margin: 0.4em 0.4em 1.2em 0.4em;
   padding: 0.75em;
@@ -110,20 +127,28 @@ html, body {
   filter: invert(1) grayscale(100%) brightness(100%);
 }
 
-.container {
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
+/*====================
+Background Video Elements
+====================*/
+video.background-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: -1;
+  filter:opacity(33%);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.night video.background-video {
+  filter:opacity(45%);
 }
 
+/*====================
+NavBar Elements
+====================*/
 nav a.active {
 	color: #000000;
 }
@@ -203,6 +228,9 @@ nav .nav-link, .night nav .nav-link, nav .form-check-label {
   }
 }
 
+/*====================
+Day/Night Switch Elements
+====================*/
 nav .form-switch {
   display: flex;  
   height: 100%; 
@@ -236,22 +264,6 @@ nav input[type="checkbox"]:focus-visible {
   box-shadow: 0 0 5px rgba(0, 0, 128, 0.5);
 }
 
-video.background-video {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100vw;
-  min-height: 100vh;
-  object-fit: cover;
-  pointer-events: none;
-  z-index: -1;
-  filter:opacity(33%);
-}
-
-.night video.background-video {
-  filter:opacity(45%);
-}
-
 .form-switch .form-check-input:checked {
   background-color: lightskyblue;
   border: 2px solid rgb(255, 255, 255)
@@ -263,6 +275,9 @@ video.background-video {
   border: 2px solid rgb(194, 194, 194);
 }
 
+/*====================
+Timeline Elements
+====================*/
 .rs-timeline {
   display: grid;
 }
@@ -323,48 +338,11 @@ li.rs-timeline-item .rs-timeline-item-content .eventCard {
   color: rgb(153, 153, 153);
 }
 
+/*====================
+Modal Elements
+====================*/
 .night .modal .btn-close {
   filter: invert(1) grayscale(100%) brightness(200%);
-}
-
-
-footer {
-  width: 100%;
-  background-color: rgb(255, 255, 255);
-  color:rgb(0, 0, 0);
-}
-
-footer .container {
-  margin-bottom: 0;
-}
-
-footer .disclaimer {
-  font-size: x-small;
-  text-align: center;
-}
-
-.night footer {
-  background-color: rgb(0, 0, 0);
-  color:rgb(255, 255, 255);
-}
-
-.cascade-slider {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.cascade-item-wrapper {
-  height: 475px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  scrollbar-width: thin;
-  position: sticky;
-  z-index: 1;
 }
 
 .modal-content {
@@ -376,10 +354,30 @@ footer .disclaimer {
   z-index: 1;
 }
 
-@media (min-width: 768px) {
-  .modal-dialog {
-      max-width: 720px;
-  }
+.modal-overlay {
+  position:absolute;
+  top:0;right:0;left:0;bottom:0;
+  background-color:rgba(255,255,255,0.75);
+  z-index:0;
+}
+
+.modal .modal-content  {
+  box-shadow:  0px 2px 4px 2px rgb(0, 0, 0, 0.5);
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color:rgb(0, 0, 0);
+}
+
+.night .modal .modal-content {
+  box-shadow: 0px 0px 8px 2px rgb(255, 255, 255, 0.5);
+  background: rgba(24, 28, 31, .8);
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color:rgb(255, 255, 255);
 }
 
 .modal-header, .modal-footer {
@@ -391,7 +389,39 @@ footer .disclaimer {
   background-color:rgba(0,0,0,0.5);
 }
 
-.cascade-item-row {
+.night .modal-overlay {
+  background-color:rgba(0,0,0,0.5);
+}
+
+@media (min-width: 768px) {
+  .modal-dialog {
+      max-width: 720px;
+  }
+}
+
+/*====================
+Carousel Elements
+====================*/
+.cascade-slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.cascade-item-wrapper, .item-wrapper {
+  height: 475px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  position: sticky;
+  z-index: 1;
+}
+
+.cascade-item-row, .item-row {
   display: block;
   overflow-y: hidden;
   min-height: 100%;
@@ -404,15 +434,21 @@ footer .disclaimer {
   z-index:0;
 }
 
-.modal-overlay {
+.night .cascade-item-overlay {
+  background-color:rgba(0,0,0,0.5);
+}
+
+.slick-list .item-overlay {
   position:absolute;
   top:0;right:0;left:0;bottom:0;
-  background-color:rgba(255,255,255,0.75);
+  background-color:rgba(255,255,255);
+  opacity: 0.25;
   z-index:0;
 }
 
-.night .cascade-item-overlay, .night .modal-overlay {
-  background-color:rgba(0,0,0,0.5);
+.night .slick-list .item-overlay {
+  background-color:rgba(0,0,0);
+  opacity: 0.15;
 }
 
 .cascade-item {
@@ -429,21 +465,17 @@ footer .disclaimer {
   overflow: hidden;
 }
 
-.cascade-slider .cascade-item  {
+.slider-item, .main-page {
+  font-weight: 500;
+  font-size: 1.1875rem;
+  line-height: 1.875rem;
+}
+
+.cascade-slider .cascade-item{
   box-shadow:  0px 2px 4px 2px rgb(0, 0, 0, 0.5);
   border-radius: 5px;
   background-color: rgb(255, 255, 255);
   background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  color:rgb(0, 0, 0);
-}
-
-.modal .modal-content  {
-  box-shadow:  0px 2px 4px 2px rgb(0, 0, 0, 0.5);
-  border-radius: 5px;
-  background-color: rgb(255, 255, 255);
-  background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
   color:rgb(0, 0, 0);
@@ -458,24 +490,29 @@ footer .disclaimer {
   color:rgb(255, 255, 255);
 }
 
-.night .modal .modal-content {
+.slick-list {
+  box-shadow:  0px 2px 4px 2px rgb(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
+.slider-item {  
+  background-color: rgb(255, 255, 255);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color:rgb(0, 0, 0);
+}
+
+.night .slick-list {
   box-shadow: 0px 0px 8px 2px rgb(255, 255, 255, 0.5);
+}
+
+.night .slider-item {
   background: rgba(24, 28, 31, .8);
-  background-size: contain;
+  background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   color:rgb(255, 255, 255);
-}
-
-.dev-header img{
-  border-radius: 50%;
-  height: 50px;
-  width: 50px;
-}
-
-.dev-info .social-icons a {
-  font-size: x-large;
-  margin: 0 0.5rem;
 }
 
 @supports (margin-bottom:clamp(5rem ,1.25rem + 16.0vw ,11.25rem)) {
@@ -485,12 +522,12 @@ footer .disclaimer {
 }
 
 @supports (padding-inline:clamp(0.875rem ,0.05rem + 3.625vw ,2.875rem)) {
-  .cascade-item {
+  .cascade-item, .slider-item {
       padding-inline: clamp(.875rem, .05rem + 3.625vw, 2.875rem);
   }
 }
 @supports (padding:clamp(1.375rem ,0.75rem + 2.75vw ,2.875rem)) {
-  .cascade-item {
+  .cascade-item, .slider-item {
       padding: clamp(1.375rem, .75rem + 2.75vw, 2.875rem);
   }
 }
@@ -514,4 +551,59 @@ footer .disclaimer {
     .title {
         font-size: clamp(1.75rem ,1.5rem + 5.0vw ,3.25rem);
     }
+}
+
+/*====================
+Carousel Elements
+====================*/
+.night .card{
+  background-color:rgba(0,0,0,0.5);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.slick-prev:before, .slick-next:before {
+  color: black;
+}
+
+.night .slick-prev:before, .night .slick-next:before {
+  color: white;
+}
+
+/*====================
+Footer Elements
+====================*/
+
+footer {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  color:rgb(0, 0, 0);
+}
+
+footer .container {
+  margin-bottom: 0;
+}
+
+footer .disclaimer {
+  font-size: x-small;
+  text-align: center;
+}
+
+.night footer {
+  background-color: rgb(0, 0, 0);
+  color:rgb(255, 255, 255);
+}
+
+.dev-header img{
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+.dev-info .social-icons a {
+  font-size: x-large;
+  margin: 0 0.5rem;
 }

@@ -1,12 +1,22 @@
 // pages/about.js
 
-import React from 'react';
+import React, {useState, useCallback}  from 'react';
 import BgVid from '../components/BgVideo/bgVideo';
 import CascadeSlider from '../components/Sliders/cascadeSlider';
+import GetClients from "../components/Logic/getClients";
+import clientXLSX from '../resources/files/client_list.xlsb.xlsx';
+import Carousel from '../components/Sliders/carousel';
 
 const About = () => {
+	const [dataFromExcel, setDataFromExcel] = useState([]);
 
-const cards = 	[{ id: 1, title: 'Who am I?', image: 'vegas_2024.jpg', 
+	const handleExcelDataLoaded = useCallback((data) => {		
+		let filteredData = data.filter(row => row.client_feedback)
+								.sort((a, b) => a.client_name > b.client_name ? 1 : -1);
+		setDataFromExcel(filteredData);
+	}, []); //Use useCallback so it doesn't create an inifinite call loop with GetClients
+
+	const cards = 	[{ id: 1, title: 'Who am I?', image: 'vegas_2024.jpg', 
 					text: 'I had a diverse upbringing being born to a mother who was born and raised in Japan and having Amish and Mennonite missionary '
 					+'grandparents. I met my wife dating online in 2018 who later imigrated from Liaoning China to be with me in 2022. '
 					+"Since graduating with my Bachelor's from Winona State I have been engaged on many various client projects for Marketing Automation"
@@ -18,7 +28,14 @@ const cards = 	[{ id: 1, title: 'Who am I?', image: 'vegas_2024.jpg',
 					+'goals. Through active listening and engaging stakeholders in gathering requirements and insight to what the desired outcomes are '
 					+'and developing solutions to turn those desires into reality in not only a practical way but aesthetically pleasing and accessible.'
 				},
-    			{ id: 3, title: 'What do I like to do for fun?', image: 'Space_Mountain_blurred.jpg', 
+    			{ id: 3, title: 'What am I looking for in my career?', image: 'pexels-seven11nash-380769.jpg', 
+					text: 'While I see myself as a jack of all trades constantly learning new skills and understanding other roles beyond just a programmer '
+					+'or developer on a team. I like challenges that push outside the normal scope, working to understand the needs of the end users and working '
+					+'towards achieving those needs. From creating logos and editing and posting videos to developing custom components from scratch. I appreciate '
+					+'a role where I can put those skills to good use and even help mentor others in what I have learned over a role that seeks to move senior '
+					+'employees up a ladder until they are no longer proficient in what they are expected to do. Give me a problem and let me solve it.'
+				},
+    			{ id: 4, title: 'What do I like to do for fun?', image: 'Space_Mountain_blurred.jpg', 
 					text: 'Traveling and experiencing different and exciting things has been a life long passion. My '
 					+'interests in Anime, Card & Video games and Fantasy/Sci-Fi has seen me at many conventions from Otakon in Baltimore, Anime North in Toronto '
 					+'and MagicCon in Las Vegas over the years. My wife and I like to enojy the tamer rides at amusment parks like the Simpsons ride at Universal '
@@ -31,8 +48,16 @@ const cards = 	[{ id: 1, title: 'Who am I?', image: 'vegas_2024.jpg',
 			<BgVid		
 				src = {'animated_clouds'}
 			/>		
+			<GetClients
+				excelFilePath={clientXLSX}
+				onDataLoaded={handleExcelDataLoaded}
+			/>  
+			<Carousel 
+				title='Testimonials: What Others Have Said About Me'
+				slideData={dataFromExcel}
+			/>
 			<CascadeSlider 
-				title='About Me'
+				title='What Do I Say About Myself'
 				cards={cards}
 			/>	
 		</div>
