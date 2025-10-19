@@ -555,14 +555,14 @@ Carousel Elements
     }
 }
 
-@supports (line-height:clamp(2.0rem ,1.75rem + 5.0vw ,3.625rem)) {
+@supports (line-height:clamp(2.0rem ,1.75rem + 5.0vw ,2.5rem)) {
     .title {
-        line-height: clamp(2.0rem ,1.75rem + 5.0vw ,3.625rem);
+        line-height: clamp(2.0rem ,1.75rem + 5.0vw ,2.5rem);
     }
 }
-@supports (font-size:clamp(1.75rem ,1.5rem + 5.0vw ,3.25rem)) {
+@supports (font-size:clamp(1.75rem ,1.5rem + 5.0vw ,2.5rem)) {
     .title {
-        font-size: clamp(1.75rem ,1.5rem + 5.0vw ,3.25rem);
+        font-size: clamp(1.75rem ,1.5rem + 5.0vw ,2.5rem);
     }
 }
 
