@@ -65,6 +65,19 @@ html, body {
   margin-bottom: 0.5rem;
 }
 
+.main-page {
+  box-shadow:  0px 2px 4px 2px rgb(0, 0, 0, 0.5);
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  color:rgb(0, 0, 0);
+}
+
+.night .main-page {
+  box-shadow: 0px 0px 8px 2px rgb(255, 255, 255, 0.5);
+  background: rgba(24, 28, 31, .8);
+  color:rgb(255, 255, 255);
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -522,12 +535,12 @@ Carousel Elements
 }
 
 @supports (padding-inline:clamp(0.875rem ,0.05rem + 3.625vw ,2.875rem)) {
-  .cascade-item, .slider-item {
+  .cascade-item, .slider-item, .main-page {
       padding-inline: clamp(.875rem, .05rem + 3.625vw, 2.875rem);
   }
 }
 @supports (padding:clamp(1.375rem ,0.75rem + 2.75vw ,2.875rem)) {
-  .cascade-item, .slider-item {
+  .cascade-item, .slider-item, .main-page {
       padding: clamp(1.375rem, .75rem + 2.75vw, 2.875rem);
   }
 }
