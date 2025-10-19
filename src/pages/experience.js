@@ -13,7 +13,7 @@ const Experience = () => {
 			<BgVid		
 				src = {'animated_rain'}
 			/>
-			<h1>The breakdown of my entire work history of employers and clients from teenage volunteering to career professional developer and marketing automation specialist today.</h1>
+			<h2 className='title'>The breakdown of my entire work history of employers and clients from teenage volunteering to career professional developer and marketing automation specialist today.</h2>
 			<Timeline type = {modalType} align={timeLineType} />
 		</div>
 	);

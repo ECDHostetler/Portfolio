@@ -38,7 +38,7 @@ const Contact = () => {
                 {!isVisible && <h2 className="hide" id="emailSendResult">{isSuccess ? "Thank you for reaching out!" : "Oops! Something went wrong. Please try again later."}</h2> }
                 {isVisible && 
                 <form ref={form} onSubmit={sendEmail}>
-                    <h2 className="bd-title">Contact Me</h2>
+                    <h2 className="title">Contact Me</h2>
                     <p className="hint-text">It's free and only takes a minute.</p>
                     <div className="form-group mb-3">
                         <div className="row">

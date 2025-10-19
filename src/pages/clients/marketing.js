@@ -10,7 +10,7 @@ const MarketingClients = () => {
             <BgVid		
                 src = {'animated_waves'}
             />            
-            <h1>Former employers and the clients I have worked for in my career as a marketing automation expert.</h1>
+            <h2 className='title'>Former employers and the clients I have worked for in my career as a marketing automation expert.</h2>
 
             <Clients 
                 type = 'Marketing'
