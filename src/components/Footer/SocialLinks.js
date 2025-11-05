@@ -15,16 +15,19 @@ const links = () => {
     id: 1,
     icon: <FiTwitter />,
     url: "https://twitter.com/danjhostetler",
+    aria: "Connect with Dan J Hostetler on X formerly Twitter",
   },
   {
     id: 2,
     icon: <FiLinkedin />,
     url: "https://www.linkedin.com/in/dan-hostetler-a1ab7432/",
+    aria: "Connect with Dan J Hostetler on LinkedIn",
   },
   {
     id: 3,
     icon: <FiMail />,
     url: "/contact",
+    aria: "Connect with Dan J Hostetler via email form submission"
   },
 ];
 
@@ -35,7 +38,7 @@ const links = () => {
             </div>
             <p className="social-icons">
                 {socialLinks.map((link) => (
-                    <a href={link.url} target={link.id !== 3 ? "_blank" : "_self"} key={link.id} rel="noreferrer" className="">
+                    <a href={link.url} target={link.id !== 3 ? "_blank" : "_self"} key={link.id} rel="noreferrer" className="" aria-label={link.aria}>
                         <i className="">{link.icon}</i>
                     </a>
                 ))}
