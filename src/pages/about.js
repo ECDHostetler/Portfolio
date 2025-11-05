@@ -45,21 +45,23 @@ const About = () => {
 
 	return (
 		<div className="col-12">
-			<BgVid		
-				src = {'animated_clouds'}
-			/>		
-			<GetClients
-				excelFilePath={clientXLSX}
-				onDataLoaded={handleExcelDataLoaded}
-			/>  
-			<Carousel 
-				title='Testimonials: What Others Have Said About Me'
-				slideData={dataFromExcel}
-			/>
-			<CascadeSlider 
-				title='What Do I Say About Myself'
-				cards={cards}
-			/>	
+			<main>
+				<BgVid		
+					src = {'animated_clouds'}
+				/>		
+				<GetClients
+					excelFilePath={clientXLSX}
+					onDataLoaded={handleExcelDataLoaded}
+				/>  
+				<Carousel 
+					title='Testimonials: What Others Have Said About Me'
+					slideData={dataFromExcel}
+				/>
+				<CascadeSlider 
+					title='What Do I Say About Myself'
+					cards={cards}
+				/>	
+			</main>
 		</div>
 	);
 };

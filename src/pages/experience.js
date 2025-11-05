@@ -10,11 +10,13 @@ const Experience = () => {
 
 	return (
 		<div className='col-12'>
-			<BgVid		
-				src = {'animated_rain'}
-			/>
-			<h2 className='title'>The breakdown of my entire work history of employers and clients from teenage volunteering to career professional developer and marketing automation specialist today.</h2>
-			<Timeline type = {modalType} align={timeLineType} />
+			<main>
+				<BgVid		
+					src = {'animated_rain'}
+				/>
+				<h2 className='title'>The breakdown of my entire work history of employers and clients from teenage volunteering to career professional developer and marketing automation specialist today.</h2>
+				<Timeline type = {modalType} align={timeLineType} />
+			</main>
 		</div>
 	);
 };
