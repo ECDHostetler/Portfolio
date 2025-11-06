@@ -80,7 +80,7 @@ const Navbar = () => {
                                 </NavLink>
                                 <NavLink onClick={() => {
                                     setIsVisible(!isVisible);}} 
-                                    to="/clients/marketing" className="dropdown-item" >
+                                    to="/clients/marketing" className="dropdown-item" tabIndex={4} >
                                     Marketing Clients
                                 </NavLink>          
                             </div>    
