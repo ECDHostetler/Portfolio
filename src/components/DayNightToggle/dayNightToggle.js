@@ -21,7 +21,7 @@ const Toggle = () => {
 
     return (
         <div className="form-check form-switch">
-            <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onChange={toggleHandler} defaultChecked={true} defaultValue={true} />
+            <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onChange={toggleHandler} defaultChecked={true} defaultValue={true} tabIndex={6}/>
             <label className="form-check-label" htmlFor="flexSwitchCheckDefault" >{!isDay ? 'Day' : 'Night'}</label>
         </div>
     );

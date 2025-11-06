@@ -54,22 +54,22 @@ const Navbar = () => {
                 <NavMenu className={isVisible ? "show" : ""} ref={dropdownRef}>
                     <NavLink onClick={() => {
                         setIsVisible(!isVisible);} }
-                        to="/" >
+                        to="/" tabIndex={1} >
                         Home
                     </NavLink>
                     <NavLink onClick={() => {
                         setIsVisible(!isVisible);}} 
-                        to="/about" >
+                        to="/about" tabIndex={2} >
                         About
                     </NavLink>
                     <NavLink onClick={() => {
                         setIsVisible(!isVisible);}} 
-                        to="/experience" >
+                        to="/experience" tabIndex={3} >
                         Experience
                     </NavLink>
                     <div className="nav-item dropdown">
                         <div className={isActiveChild ? 'parent-active' : ''}>
-                            <NavBtn className="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
+                            <NavBtn className="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true" tabIndex={4}>
                                 Clients
                             </NavBtn>
                             <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -88,7 +88,7 @@ const Navbar = () => {
                     </div>
                     <NavLink onClick={() => {
                         setIsVisible(!isVisible);}} 
-                        to="/contact" >
+                        to="/contact" tabIndex={5} >
                         Contact
                     </NavLink>
                 </NavMenu>
