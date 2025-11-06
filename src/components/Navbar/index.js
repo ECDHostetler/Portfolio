@@ -54,33 +54,33 @@ const Navbar = () => {
                 <NavMenu className={isVisible ? "show" : ""} ref={dropdownRef}>
                     <NavLink onClick={() => {
                         setIsVisible(!isVisible);} }
-                        to="/" tabIndex={1} >
+                        to="/" >
                         Home
                     </NavLink>
                     <NavLink onClick={() => {
                         setIsVisible(!isVisible);}} 
-                        to="/about" tabIndex={2} >
+                        to="/about" >
                         About
                     </NavLink>
                     <NavLink onClick={() => {
                         setIsVisible(!isVisible);}} 
-                        to="/experience" tabIndex={3} >
+                        to="/experience" >
                         Experience
                     </NavLink>
                     <div className="nav-item dropdown">
                         <div className={isActiveChild ? 'parent-active' : ''}>
-                            <NavBtn className="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true" tabIndex={4}>
+                            <NavBtn className="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
                                 Clients
                             </NavBtn>
                             <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <NavLink onClick={() => {
                                     setIsVisible(!isVisible);}} 
-                                    to="/clients/developer" className="dropdown-item" tabIndex={4} >
+                                    to="/clients/developer" className="dropdown-item" >
                                     Developer Clients
                                 </NavLink>
                                 <NavLink onClick={() => {
                                     setIsVisible(!isVisible);}} 
-                                    to="/clients/marketing" className="dropdown-item" tabIndex={4} >
+                                    to="/clients/marketing" className="dropdown-item" >
                                     Marketing Clients
                                 </NavLink>          
                             </div>    
@@ -88,7 +88,7 @@ const Navbar = () => {
                     </div>
                     <NavLink onClick={() => {
                         setIsVisible(!isVisible);}} 
-                        to="/contact" tabIndex={5} >
+                        to="/contact" >
                         Contact
                     </NavLink>
                 </NavMenu>
