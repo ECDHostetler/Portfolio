@@ -75,7 +75,7 @@ const Navbar = () => {
                             <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <NavLink onClick={() => {
                                     setIsVisible(!isVisible);}} 
-                                    to="/clients/developer" className="dropdown-item" >
+                                    to="/clients/developer" className="dropdown-item" tabIndex={4} >
                                     Developer Clients
                                 </NavLink>
                                 <NavLink onClick={() => {
