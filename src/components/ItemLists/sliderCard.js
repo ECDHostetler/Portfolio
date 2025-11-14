@@ -3,6 +3,16 @@
 import React from "react";
 
 const SliderCards = ({cards}) => {
+    const addLineBreaks = (str) => 
+        str.split('\n').map((subStr) => {
+            return (
+                <>
+                    {subStr}
+                    <br />
+                    <br />
+                </>
+            );
+        });
 
     return (
         cards.map((item, i) => (
@@ -11,7 +21,7 @@ const SliderCards = ({cards}) => {
                 <div className="cascade-item-wrapper">
                     <div className="cascade-item-row">
                         <h4>{item.title}</h4>
-                        <p>{item.text}</p>
+                        <p>{addLineBreaks(item.text)}</p>
                     </div>
                 </div>
             </div>
