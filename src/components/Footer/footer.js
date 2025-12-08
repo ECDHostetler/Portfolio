@@ -10,14 +10,32 @@ const Footer = () => {
         <footer>
             <div className="container">
                 <div className="row">
-                    <div className="col-xs-12 col-sm-6 col-md-4 align-content-center ps-2">
+                    <div className="col-xs-12 col-sm-6 col-md-4 text-center align-content-center ps-2">
                         <SocialLinks />
                     </div>
                     <div className="col-xs-12 col-sm-6 col-md-4 text-center align-content-center">
                         <p className="mb-0">Dan J. Hostetler Jr &nbsp; &nbsp; &copy; {currentYear}</p>
                     </div>
-                    <div className="col-xs-12 col-sm-6 col-md-4">
-
+                    <div className="col-xs-12 col-sm-6 col-md-4 text-center align-content-center">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-xs-12 col-sm-6">
+                                    <ul>
+                                        <li><a href="/">Home</a></li>
+                                        <li><a href="/about">About</a></li>
+                                        <li><a href="/experience">Experience</a></li>  
+                                        <li><a href="/contact">Contact</a></li>
+                                    </ul>
+                                </div>   
+                                <div className="col-xs-12 col-sm-6">
+                                    <ul>
+                                        <li><u>Clients</u></li>                
+                                        <li><a href="/clients/developer">Developer</a></li>
+                                        <li><a href="/clients/marketing">Marketing</a></li>                                        
+                                    </ul>
+                                </div>   
+                            </div>   
+                        </div>                     
                     </div>   
                 </div>
             </div>

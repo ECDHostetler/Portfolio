@@ -13,6 +13,7 @@ import {
 import { useLocation } from 'react-router-dom';
 import Toggle from "../DayNightToggle/dayNightToggle.js"
 import useScreenSize from "../Logic/useScreenSize.js";
+import $ from 'jquery';
  
 const Navbar = () => {
     const location = useLocation();
@@ -22,6 +23,7 @@ const Navbar = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [isActiveChild, setIsActiveChild] = useState(false);
     const dropdownRef = useRef(null);
+    
 
     useEffect(() => {
         function checkActiveTab() {
@@ -45,10 +47,34 @@ const Navbar = () => {
         };
     }, [isVisible, width]);
 
+    useEffect(() => {
+        function handleScroll() { 
+            if (window.scrollY > 0) {
+                sticky();                               
+            }
+            else{
+                notSticky();                             
+            }
+
+        };
+
+        const sticky = () => {
+            $('#root, .stickyNavBar').addClass('sticky');            
+        }
+        const notSticky = () => {
+            $('#root, .stickyNavBar').removeClass('sticky');              
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);    
+
 
     return (
         <>
-            <Nav>
+            <Nav className="stickyNavBar">
                 <Bars onClick={() => setIsVisible(!isVisible)} />
 
                 <NavMenu className={isVisible ? "show" : ""} ref={dropdownRef}>
